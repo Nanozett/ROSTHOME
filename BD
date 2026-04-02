@@ -1,0 +1,28 @@
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    avatar VARCHAR(10) DEFAULT '👤',
+    nickname VARCHAR(50)
+);
+
+CREATE TABLE devices (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    device_id VARCHAR(50) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    room VARCHAR(50),
+    type VARCHAR(50),
+    status BOOLEAN DEFAULT FALSE,
+    pos_x FLOAT DEFAULT 0,
+    pos_y FLOAT DEFAULT 0.5,
+    pos_z FLOAT DEFAULT 0,
+    manufacturer VARCHAR(100),
+    state VARCHAR(255),
+    battery INT,
+    target_temp INT,
+    connected_device VARCHAR(100),
+    target_room VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_device_per_user (user_id, device_id)
+);

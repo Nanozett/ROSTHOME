@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RostHome - Умный дом</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+</head>
+<body>
+  <div id="notification-area"></div>
+  <div id="device-info-panel">
+    <div id="device-info-name" style="font-weight: bold; margin-bottom: 5px;">Выберите устройство</div>
+    <div id="device-info-status" style="font-size: 12px;">Нажмите на сферу в 3D-плане</div>
+  </div>
+
+  <div class="container">
+    <header>
+      <img src="logo.png" alt="Логотип" style="height: 3.0em;">
+      <div class="header-left">
+
+        <h1> Управление умным домом</h1>
+        <p>Включайте и выключайте устройства в реальном времени</p>
+
+      </div>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-btn" title="Переключить тему">🌙</button>
+        <button id="support-btn" class="support-btn" title="Поддержка 24/7">🆘</button>
+        <div class="profile-panel" id="profile-panel">
+          <span id="avatar-display">👤</span>
+          <span id="username-display">Гость</span>
+          <button id="logout-btn">Выйти</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn" data-tab="home">🏠 Главная</button>
+      <button class="tab-btn active" data-tab="devices">📱 Список устройств</button>
+      <button class="tab-btn" data-tab="map">🗺️ 3D План дома</button>
+    </div>
+
+    
+    <div id="home-tab" class="tab-content">
+      <div class="hero">
+        <h1>Добро пожаловать в <span class="gradient-text">RostHome</span></h1>
+        <p>Интеллектуальная система управления вашим домом</p>
+        <button id="try-now-btn" class="cta-btn">Попробовать</button>
+      </div>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Мгновенное управление</h3>
+          <p>Включайте и выключайте устройства из любой точки мира</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Мониторинг</h3>
+          <p>Интеллектуальный контроль безопасности и энергопотребления</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🗺️</div>
+          <h3>3D План дома</h3>
+          <p>Визуальное управление устройствами в трёхмерном пространстве</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Безопасность</h3>
+          <p>Автоматическое отключение опасных устройств</p>
+        </div>
+      </div>
+      <div class="smart-home-explanation">
+  <h2>🤖 Как работает умный дом?</h2>
+  <div class="explanation-grid">
+    <div class="explanation-text">
+      <p><strong>Децентрализованная система</strong> – нет единого управляющего устройства. Любой хаб может взять на себя управление, обеспечивая высокую надёжность.</p>
+      <h3>🏠 Устройства управления (хабы)</h3>
+      <p>Позволяют добавлять датчики, получать данные и управлять электрооборудованием. Благодаря хабам информация отображается в приложении.</p>
+      <ul>
+        <li>Wi-Fi розетка </li>
+        <li>Блоки управления </li>
+        <li>Модуль управления </li>
+      </ul>
+      <h3>📡 Датчики</h3>
+      <p>Фиксируют события (протечка, состояние) и измеряют температуру, влажность, освещённость.</p>
+    </div>
+    <div class="explanation-scheme">
+      <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Определения для анимированных кружков -->
+        <defs>
+          <circle id="dot" cx="0" cy="0" r="4" fill="#9b4dff">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M0,0" />
+          </circle>
+        </defs>
+        
+        <!-- Линии соединений -->
+        <line x1="80" y1="120" x2="250" y2="200" stroke="#b45cff" stroke-width="2" stroke-dasharray="5 5" />
+        <line x1="80" y1="160" x2="250" y2="200" stroke="#b45cff" stroke-width="2" stroke-dasharray="5 5" />
+        <line x1="420" y1="120" x2="250" y2="200" stroke="#b45cff" stroke-width="2" stroke-dasharray="5 5" />
+        <line x1="420" y1="160" x2="250" y2="200" stroke="#b45cff" stroke-width="2" stroke-dasharray="5 5" />
+        <line x1="250" y1="200" x2="250" y2="300" stroke="#b45cff" stroke-width="2" stroke-dasharray="5 5" />
+        
+        <!-- Группа "Хабы" -->
+        <g transform="translate(80,80)">
+          <rect x="-50" y="-20" width="100" height="120" rx="12" fill="rgba(155,77,255,0.2)" stroke="#9b4dff" stroke-width="2" />
+          <text x="0" y="-5" text-anchor="middle" fill="currentColor" font-size="12">Хабы</text>
+          <text x="0" y="15" text-anchor="middle" fill="currentColor" font-size="10">Wi-Fi розетка</text>
+          <text x="0" y="35" text-anchor="middle" fill="currentColor" font-size="10">Блоки управления</text>
+          <text x="0" y="55" text-anchor="middle" fill="currentColor" font-size="10">Модуль управления</text>
+        </g>
+        
+        <!-- Группа "Датчики" -->
+        <g transform="translate(250,200)">
+          <rect x="-50" y="-30" width="100" height="100" rx="12" fill="rgba(155,77,255,0.2)" stroke="#9b4dff" stroke-width="2" />
+          <text x="0" y="-5" text-anchor="middle" fill="currentColor" font-size="12">Датчики</text>
+          <text x="0" y="15" text-anchor="middle" fill="currentColor" font-size="10">🌡️ Температура</text>
+          <text x="0" y="35" text-anchor="middle" fill="currentColor" font-size="10">💧 Влажность</text>
+          <text x="0" y="55" text-anchor="middle" fill="currentColor" font-size="10">％ Состояние</text>
+        </g>
+        
+        <!-- Группа "Устройства" -->
+        <g transform="translate(420,80)">
+          <rect x="-50" y="-20" width="100" height="120" rx="12" fill="rgba(155,77,255,0.2)" stroke="#9b4dff" stroke-width="2" />
+          <text x="0" y="-5" text-anchor="middle" fill="currentColor" font-size="12">Устройства</text>
+          <text x="0" y="15" text-anchor="middle" fill="currentColor" font-size="10">💡 Свет</text>
+          <text x="0" y="35" text-anchor="middle" fill="currentColor" font-size="10">❄️ Кондиционер</text>
+          <text x="0" y="55" text-anchor="middle" fill="currentColor" font-size="10">🔌 Розетка</text>
+        </g>
+        
+        <!-- Анимированные точки -->
+        <use href="#dot">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M80,120 L250,200" />
+        </use>
+        <use href="#dot">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M80,160 L250,200" />
+        </use>
+        <use href="#dot">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M420,120 L250,200" />
+        </use>
+        <use href="#dot">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M420,160 L250,200" />
+        </use>
+        <use href="#dot">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M250,200 L250,300" />
+        </use>
+      </svg>
+      <p class="scheme-caption">🔁 Данные передаются между хабами, датчиками и устройствами без единого центра</p>
+    </div>
+  </div>
+</div>
+    </div>
+
+
+    <div id="devices-tab" class="tab-content active">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div class="rooms-filter">
+          <button class="filter-btn active" data-room="all">Все комнаты</button>
+          <button class="filter-btn" data-room="Гостиная">Гостиная</button>
+          <button class="filter-btn" data-room="Кухня">Кухня</button>
+          <button class="filter-btn" data-room="Спальня">Спальня</button>
+          <button class="filter-btn" data-room="Кабинет">Кабинет</button>
+        </div>
+        <button id="add-device-btn" class="add-device-btn">+ Добавить устройство</button>
+      </div>
+      <div id="devices-container" class="devices-grid">
+        <div class="loading">Загрузка устройств...</div>
+      </div>
+    </div>
+
+    <div id="map-tab" class="tab-content">
+      <div id="canvas-container" style="width: 100%; height: 550px; background: #111; border-radius: 20px; overflow: hidden;"></div>
+      <div style="display: flex; gap: 10px; margin-top: 15px; align-items: center;">
+        <button id="upload-photo-btn" class="support-btn" style="background: #9b4dff;">📸 Загрузить фото квартиры</button>
+        <div id="ai-status" style="display: none; align-items: center; gap: 8px; color: white; background: rgba(0,0,0,0.6); padding: 5px 12px; border-radius: 20px;">
+          <span>🤖 ИИ анализирует...</span>
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно профиля -->
+  <div id="profile-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Настройки профиля</h2>
+      <div class="avatar-section">
+        <div id="avatar-preview" class="avatar-preview">👤</div>
+        <div class="avatar-options">
+          <button class="avatar-choice" data-avatar="👤">👤</button>
+          <button class="avatar-choice" data-avatar="🧑">🧑</button>
+          <button class="avatar-choice" data-avatar="👩">👩</button>
+          <button class="avatar-choice" data-avatar="🧔">🧔</button>
+          <button class="avatar-choice" data-avatar="🐱">🐱</button>
+          <button class="avatar-choice" data-avatar="🤖">🤖</button>
+          <button id="upload-avatar-btn" class="avatar-choice">📷</button>
+        </div>
+      </div>
+      <input type="text" id="nickname-input" placeholder="Ваш никнейм" maxlength="30">
+      <button id="save-profile-btn" class="save-btn">Сохранить</button>
+      <button id="logout-btn" class="logout-btn">🚪 Выйти</button> 
+    </div>
+  </div>
+
+  <div id="add-device-modal" class="modal" style="display: none;">
+
+    <div class="modal-content">
+
+
+      <span class="close-modal">&times;</span>
+      <h2>Добавить новое устройство</h2>
+
+      <input type="text" id="device-name" placeholder="Название устройства" required>
+      <select id="device-type">
+        <option value="Свет">Свет</option>
+        <option value="Кондиционер">Кондиционер</option>
+        <option value="ТВ">ТВ</option>
+        <option value="Духовка">Духовка</option>
+        <option value="Чайник">Чайник</option>
+        <option value="Лампа">Лампа</option>
+        <option value="Компьютер">Компьютер</option>
+        <option value="Робот-пылесос">Робот-пылесос</option>
+        <option value="Розетка">Розетка</option>
+      </select>
+      <select id="device-room">
+        <option value="Гостиная">Гостиная</option>
+        <option value="Кухня">Кухня</option>
+        <option value="Спальня">Спальня</option>
+        <option value="Кабинет">Кабинет</option>
+      </select>
+      <input type="text" id="device-manufacturer" placeholder="Производитель" value="Generic">
+      <div style="margin: 10px 0;">
+        <label><input type="checkbox" id="device-status"> Включено по умолчанию</label>
+      </div>
+      <button id="confirm-add-device" class="save-btn">Добавить</button>
+    </div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
